@@ -4,7 +4,7 @@
 
 **Kairos finds yours.**
 
-🌐 **Live:** [kairos-iq.netlify.app](https://kairos-iq.netlify.app) &nbsp;|&nbsp; 💻 **Repo:** [github.com/MuhammadSubhan404x/Kairos](https://github.com/MuhammadSubhan404x/Kairos)
+🌐 **Live:** [kairos-production-5dd9.up.railway.app](https://kairos-production-5dd9.up.railway.app) &nbsp;|&nbsp; 💻 **Repo:** [github.com/MuhammadSubhan404x/Kairos](https://github.com/MuhammadSubhan404x/Kairos)
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
