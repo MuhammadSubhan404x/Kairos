@@ -81,8 +81,8 @@ export default function Hero({ onGetStarted }: HeroProps) {
           style={{ animationDelay: "0.35s" }}
         >
           {[
-            { icon: Shield, text: "No emails stored" },
-            { icon: Zap,    text: "Results in < 15s" },
+            { icon: Shield, text: "Not stored by Kairos" },
+            { icon: Zap,    text: "Results in < 60s" },
             { icon: Mail,   text: "Gmail integration" },
           ].map(({ icon: Icon, text }) => (
             <div key={text} className="flex items-center gap-1.5 text-xs text-slate-600">

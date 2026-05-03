@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X, Copy, Check, Loader2, RefreshCw } from "lucide-react";
 import type { RankedOpportunity, StudentProfile } from "@/lib/types";
 
@@ -14,11 +14,22 @@ export default function CoverLetterModal({ item, profile, onClose }: Props) {
   const [letter, setLetter] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const opp = item.opportunity;
+
+  const startTimer = () => {
+    setElapsed(0);
+    timerRef.current = setInterval(() => setElapsed(s => s + 1), 1000);
+  };
+  const stopTimer = () => {
+    if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+  };
 
   const generate = async () => {
     setLoading(true);
     setLetter("");
+    startTimer();
     try {
       const res = await fetch("/api/cover-letter", {
         method: "POST",
@@ -31,10 +42,11 @@ export default function CoverLetterModal({ item, profile, onClose }: Props) {
       setLetter("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
+      stopTimer();
     }
   };
 
-  useEffect(() => { generate(); }, []);
+  useEffect(() => { generate(); return () => stopTimer(); }, []);
 
   const copy = async () => {
     await navigator.clipboard.writeText(letter);
@@ -79,6 +91,9 @@ export default function CoverLetterModal({ item, profile, onClose }: Props) {
             <div className="flex flex-col items-center justify-center h-48 gap-3 text-slate-400">
               <Loader2 size={24} className="animate-spin text-violet-400" />
               <p className="text-sm">Drafting your cover letter...</p>
+              {elapsed > 3 && (
+                <p className="text-xs text-slate-600">{elapsed}s — AI is writing, almost there...</p>
+              )}
             </div>
           ) : (
             <pre className="text-slate-200 text-sm leading-relaxed whitespace-pre-wrap font-sans">

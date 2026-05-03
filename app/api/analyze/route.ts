@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { extractOpportunities } from "@/lib/gemini";
+import { extractOpportunities } from "@/lib/extractor";
 import { scoreOpportunities } from "@/lib/scoringEngine";
 import { withTimeout } from "@/lib/utils";
 import type { AnalyzeRequest, AnalyzeResponse } from "@/lib/types";

@@ -110,7 +110,7 @@ export default function Home() {
         data = await fetchWithFallback(combined, profile);
       }
       setResults(data);
-      setIsFallback(!!data.isFallback);
+      setIsFallback(!demoMode && !!data.isFallback);
       try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch {}
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");

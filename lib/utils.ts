@@ -26,6 +26,6 @@ export function chunkArray<T>(arr: T[], size: number): T[][] {
 
 export function detectUrdu(text: string): boolean {
   const urduUnicode = /[؀-ۿ]/;
-  const romanUrduWords = /\b(kaise|mujhe|meri|mera|kya|nahi|hai|hain|aur|bhi|ka|ki|ke|se|ko|yeh|woh|ap|aap|tum|hum|main|jana|karo|kerna|krna|tha|thi|the|hoga|hogi|chahiye|milega|milegi|lagta|lagti)\b/i;
+  const romanUrduWords = /\b(kaise|mujhe|meri|mera|kya|nahi|nahin|nai|hai|hain|aur|bhi|ka|ki|ke|se|ko|yeh|woh|ap|aap|tum|hum|main|jana|karo|kerna|krna|tha|thi|the|hoga|hogi|chahiye|milega|milegi|lagta|lagti|chahta|chahti|hoon|theek|zaroor|batao|batayen|samajh|puchna|kuch|sab|acha|accha|bilkul|matlab|lekin|magar|phir|abhi|sirf|bahut|bohat|zyada|kam|agar|toh|phir|wala|wali|inka|unka|mujko|tumhe|apna|apni)\b/i;
   return urduUnicode.test(text) || romanUrduWords.test(text);
 }
