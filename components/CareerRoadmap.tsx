@@ -60,7 +60,7 @@ export default function CareerRoadmap({ profile }: CareerRoadmapProps) {
 
       {/* Modal */}
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4"
           style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }}>
           <div className="w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 shadow-2xl"
             style={{ background: "rgba(14,19,36,0.98)" }}>

@@ -169,12 +169,13 @@ export default function Home() {
           {/* Demo Mode toggle */}
           <button
             onClick={handleDemoModeToggle}
-            className={`flex items-center gap-2 px-4 py-4 rounded-2xl text-sm border transition-all ${
+            disabled={loading}
+            className={`flex items-center gap-2 px-4 py-4 rounded-2xl text-sm border transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
               demoMode
                 ? "bg-amber-500/15 border-amber-500/40 text-amber-300"
                 : "border-white/10 text-slate-500 hover:text-slate-300 hover:border-white/20"
             }`}
-            title={demoMode ? "Demo Mode ON — emails cleared. Click to disable." : "Enable Demo Mode for instant pre-analyzed results"}
+            title={loading ? "Analysis in progress..." : demoMode ? "Demo Mode ON — emails cleared. Click to disable." : "Enable Demo Mode for instant pre-analyzed results"}
           >
             <Zap size={14} />
             {demoMode ? "Demo Mode ON" : "Demo Mode"}
